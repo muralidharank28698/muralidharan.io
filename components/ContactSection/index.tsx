@@ -66,8 +66,18 @@ const Toast: React.FC<{
         onClick={onClose}
         className="ml-auto text-slate-500 hover:text-slate-900 dark:text-white/40 dark:hover:text-white"
       >
-        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+        <svg
+          className="w-4 h-4"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          />
         </svg>
       </button>
     </div>
@@ -200,7 +210,12 @@ export default function Contact() {
       className="relative pt-24 pb-8 w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 2xl:px-24 scroll-mt-28"
     >
       {/* Section Tag */}
-      <motion.div initial="hidden" whileInView="show" viewport={VP} variants={revealLeft}>
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={VP}
+        variants={revealLeft}
+      >
         <div className="section-tag mb-6">
           <span className="w-1.5 h-1.5 bg-orange-400 rounded-full" />
           Get In Touch
@@ -209,7 +224,6 @@ export default function Contact() {
 
       {/* Main 2-Column Layout */}
       <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-0 items-stretch">
-        
         {/* ══════════ LEFT: Form ══════════ */}
         <motion.div
           initial="hidden"
@@ -230,7 +244,9 @@ export default function Contact() {
                 label="First Name"
                 value={form.firstname}
                 error={errors.firstname}
-                onChange={(e: any) => setForm({ ...form, firstname: e.target.value })}
+                onChange={(e: any) =>
+                  setForm({ ...form, firstname: e.target.value })
+                }
                 required
               />
               <UnderlineField
@@ -238,7 +254,9 @@ export default function Contact() {
                 label="Last Name"
                 value={form.lastname}
                 error={errors.lastname}
-                onChange={(e: any) => setForm({ ...form, lastname: e.target.value })}
+                onChange={(e: any) =>
+                  setForm({ ...form, lastname: e.target.value })
+                }
               />
             </div>
 
@@ -259,7 +277,9 @@ export default function Contact() {
               label="Company / Project"
               value={form.company}
               error={errors.company}
-              onChange={(e: any) => setForm({ ...form, company: e.target.value })}
+              onChange={(e: any) =>
+                setForm({ ...form, company: e.target.value })
+              }
             />
 
             {/* Message */}
@@ -268,7 +288,9 @@ export default function Contact() {
               label="How can I help you?"
               value={form.message}
               error={errors.message}
-              onChange={(e: any) => setForm({ ...form, message: e.target.value })}
+              onChange={(e: any) =>
+                setForm({ ...form, message: e.target.value })
+              }
               multiline
               required
             />
@@ -293,7 +315,11 @@ export default function Contact() {
                   stroke="currentColor"
                   strokeWidth={2.5}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                  />
                 </svg>
               )}
             </button>
@@ -311,25 +337,29 @@ export default function Contact() {
           {/* Decorative Background Blobs */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             {/* Large blob top-right */}
-            <div className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full 
+            <div
+              className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full 
               bg-gradient-to-br from-orange-400/20 to-amber-300/10 
               dark:from-orange-500/15 dark:to-amber-500/5
-              blur-[2px]" 
+              blur-[2px]"
             />
             {/* Medium blob bottom-left */}
-            <div className="absolute -bottom-16 -left-8 w-[300px] h-[300px] rounded-full 
+            <div
+              className="absolute -bottom-16 -left-8 w-[300px] h-[300px] rounded-full 
               bg-gradient-to-tr from-amber-400/15 to-orange-300/10 
               dark:from-amber-500/10 dark:to-orange-400/5
-              blur-[2px]" 
+              blur-[2px]"
             />
             {/* Small accent circle */}
-            <div className="absolute top-[15%] left-[20%] w-16 h-16 rounded-full 
-              bg-orange-400/30 dark:bg-orange-400/20" 
+            <div
+              className="absolute top-[15%] left-[20%] w-16 h-16 rounded-full 
+              bg-orange-400/30 dark:bg-orange-400/20"
             />
           </div>
 
           {/* Info Card */}
-          <div className="relative z-10 w-full max-w-sm mx-auto
+          <div
+            className="relative z-10 w-full max-w-sm mx-auto
             bg-white/80 dark:bg-[rgba(15,15,25,0.85)]
             backdrop-blur-2xl rounded-3xl
             border border-black/[0.06] dark:border-white/[0.08]
@@ -347,8 +377,12 @@ export default function Contact() {
                 className="w-12 h-12 rounded-xl object-cover ring-2 ring-orange-400/20"
               />
               <div>
-                <h3 className="text-lg font-black text-slate-900 dark:text-white tracking-tight">Muralidharan</h3>
-                <p className="text-xs text-orange-500 dark:text-orange-400 font-semibold">Software Developer</p>
+                <h3 className="text-lg font-black text-slate-900 dark:text-white tracking-tight">
+                  Muralidharan
+                </h3>
+                <p className="text-xs text-orange-600 dark:text-orange-400 font-semibold">
+                  Full Stack Developer / SharePoint Developer
+                </p>
               </div>
             </div>
 
@@ -356,25 +390,40 @@ export default function Contact() {
             <div className="space-y-5 mb-8">
               <div className="flex items-start gap-3">
                 <span className="mt-0.5 w-8 h-8 rounded-lg bg-orange-500/10 dark:bg-orange-400/10 flex items-center justify-center flex-shrink-0">
-                  <FaSearchLocation size={13} className="text-orange-500 dark:text-orange-400" />
+                  <FaSearchLocation
+                    size={13}
+                    className="text-orange-500 dark:text-orange-400"
+                  />
                 </span>
                 <p className="text-sm text-slate-600 dark:text-white/60 leading-relaxed">
-                  Chennai, Tamil Nadu,<br />India
+                  Chennai, Tamil Nadu,
+                  <br />
+                  India
                 </p>
               </div>
 
               <div className="flex items-center gap-3">
                 <span className="w-8 h-8 rounded-lg bg-orange-500/10 dark:bg-orange-400/10 flex items-center justify-center flex-shrink-0">
-                  <BiPhone size={14} className="text-orange-500 dark:text-orange-400" />
+                  <BiPhone
+                    size={14}
+                    className="text-orange-500 dark:text-orange-400"
+                  />
                 </span>
-                <p className="text-sm text-slate-600 dark:text-white/60">+91 80986 33412</p>
+                <p className="text-sm text-slate-600 dark:text-white/60">
+                  +91 80986 33412
+                </p>
               </div>
 
               <div className="flex items-center gap-3">
                 <span className="w-8 h-8 rounded-lg bg-orange-500/10 dark:bg-orange-400/10 flex items-center justify-center flex-shrink-0">
-                  <MdEmail size={14} className="text-orange-500 dark:text-orange-400" />
+                  <MdEmail
+                    size={14}
+                    className="text-orange-500 dark:text-orange-400"
+                  />
                 </span>
-                <p className="text-sm text-slate-600 dark:text-white/60">muralidharank28698@gmail.com</p>
+                <p className="text-sm text-slate-600 dark:text-white/60">
+                  muralidharank28698@gmail.com
+                </p>
               </div>
             </div>
 
@@ -406,15 +455,18 @@ export default function Contact() {
         <div className="h-px w-full bg-gradient-to-r from-transparent via-orange-400/40 to-transparent mb-8" />
 
         <div className="flex flex-col sm:flex-row items-center sm:items-center justify-between gap-4 pb-8">
-          
           {/* Left: Brand */}
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-400 to-amber-500 flex items-center justify-center text-white font-black text-sm shadow-[0_0_16px_rgba(255,107,43,0.3)]">
               M
             </div>
             <div>
-              <p className="text-sm font-black tracking-tight text-slate-900 dark:text-white leading-none">Muralidharan</p>
-              <p className="text-[10px] text-slate-400 dark:text-white/30 tracking-widest uppercase mt-0.5">Software Developer · Chennai</p>
+              <p className="text-sm font-black tracking-tight text-slate-900 dark:text-white leading-none">
+                Muralidharan
+              </p>
+              <p className="text-[10px] text-slate-500 dark:text-white/40 tracking-widest uppercase mt-0.5">
+                Full Stack Developer · Chennai
+              </p>
             </div>
           </div>
 

@@ -52,13 +52,27 @@ const Header: React.FC<HeaderProps> = ({
 
   const handleScrollToSection = (sectionName: SectionName) => {
     switch (sectionName) {
-      case "Intro": scrollHandler(refs.introductionRef); break;
-      case "Story": scrollHandler(refs.aboutRef); break;
-      case "Skills": scrollHandler(refs.skillsRef); break;
-      case "Education": scrollHandler(refs.educationRef); break;
-      case "Journey": scrollHandler(refs.experienceRef); break;
-      case "Work": scrollHandler(refs.projectsRef); break;
-      case "Connect": scrollHandler(refs.contactRef); break;
+      case "Intro":
+        scrollHandler(refs.introductionRef);
+        break;
+      case "Story":
+        scrollHandler(refs.aboutRef);
+        break;
+      case "Skills":
+        scrollHandler(refs.skillsRef);
+        break;
+      case "Education":
+        scrollHandler(refs.educationRef);
+        break;
+      case "Journey":
+        scrollHandler(refs.experienceRef);
+        break;
+      case "Work":
+        scrollHandler(refs.projectsRef);
+        break;
+      case "Connect":
+        scrollHandler(refs.contactRef);
+        break;
     }
   };
 
@@ -68,7 +82,7 @@ const Header: React.FC<HeaderProps> = ({
       <header
         className={clsx(
           "fixed top-5 left-1/2 -translate-x-1/2 z-50 transition-all duration-500",
-          "flex items-center justify-center"
+          "flex items-center justify-center",
         )}
       >
         {/* Desktop nav pill */}
@@ -78,7 +92,7 @@ const Header: React.FC<HeaderProps> = ({
             "transition-all duration-500",
             scrolled
               ? "bg-white/80 dark:bg-[rgba(5,5,8,0.85)] backdrop-blur-2xl border border-black/10 dark:border-white/10 shadow-[0_0_40px_rgba(255,107,43,0.08)]"
-              : "bg-white/50 dark:bg-[rgba(5,5,8,0.55)] backdrop-blur-xl border border-black/5 dark:border-white/5"
+              : "bg-white/50 dark:bg-[rgba(5,5,8,0.55)] backdrop-blur-xl border border-black/5 dark:border-white/5",
           )}
         >
           {/* Logo dot */}
@@ -95,9 +109,15 @@ const Header: React.FC<HeaderProps> = ({
               className="w-6 h-6 rounded-full overflow-hidden border border-orange-400/40"
               style={{ boxShadow: "0 0 12px rgba(255,107,43,0.4)" }}
             >
-              <img src={logoImg.src} alt="MK" className="w-full h-full object-cover" />
+              <img
+                src={logoImg.src}
+                alt="MK"
+                className="w-full h-full object-cover"
+              />
             </div>
-            <span className="text-slate-900 dark:text-white font-bold text-sm tracking-tight">MK</span>
+            <span className="text-slate-900 dark:text-white font-bold text-sm tracking-tight">
+              MK
+            </span>
           </a>
 
           {/* Divider */}
@@ -134,14 +154,29 @@ const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Mobile nav */}
-        <div className="md:hidden flex items-center gap-3 px-4 py-2 rounded-full
-          bg-white/80 dark:bg-[rgba(5,5,8,0.85)] backdrop-blur-2xl border border-black/10 dark:border-white/10">
-          <a href="#Intro" onClick={(e) => { e.preventDefault(); setActiveSection("Intro"); handleScrollToSection("Intro"); }}>
+        <div
+          className="md:hidden flex items-center gap-3 px-4 py-2 rounded-full
+          bg-white/80 dark:bg-[rgba(5,5,8,0.85)] backdrop-blur-2xl border border-black/10 dark:border-white/10"
+        >
+          <a
+            href="#Intro"
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveSection("Intro");
+              handleScrollToSection("Intro");
+            }}
+          >
             <div className="w-7 h-7 rounded-full overflow-hidden border border-orange-400/40">
-              <img src={logoImg.src} alt="MK" className="w-full h-full object-cover" />
+              <img
+                src={logoImg.src}
+                alt="MK"
+                className="w-full h-full object-cover"
+              />
             </div>
           </a>
-          <span className="text-slate-900 dark:text-white font-bold text-sm">MK</span>
+          <span className="text-slate-900 dark:text-white font-bold text-sm">
+            MK
+          </span>
           <button
             onClick={toggleMenu}
             className="ml-2 text-slate-500 dark:text-white/70 hover:text-slate-900 dark:hover:text-white transition-colors"
