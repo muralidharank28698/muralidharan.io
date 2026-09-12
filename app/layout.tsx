@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import SmoothScrolling from "../components/SmoothScrolling";
+import ThemeContextProvider from "../context/theme-context";
+import ActiveSectionContextProvider from "../context/active-section-context";
+import CustomCursor from "../components/CustomCursor";
+import ThemeToggle from "../components/ThemeToggle";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -27,7 +31,14 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <ThemeContextProvider>
+          <ActiveSectionContextProvider>
+            <CustomCursor />
+            <SmoothScrolling>{children}</SmoothScrolling>
+          </ActiveSectionContextProvider>
+        </ThemeContextProvider>
+      </body>
     </html>
   );
 }

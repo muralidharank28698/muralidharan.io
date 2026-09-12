@@ -1,0 +1,10 @@
+.centerImage {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(222, 255, 247, 1) 100%,
+    rgb(221, 249, 255) 100%,
+    rgba(212, 160, 128, 1) 100%
+  );
+}

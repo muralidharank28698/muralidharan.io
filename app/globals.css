@@ -1,26 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --accent-orange: #ff6b2b;
+  --accent-cyan: #38bdf8;
+  
+  /* Light Mode Tokens */
+  --bg-primary: #f8fafc; /* slate-50 */
+  --text-main: #0f172a; /* slate-900 */
+  --text-muted: #64748b; /* slate-500 */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --accent-glow-orange: rgba(255, 107, 43, 0.15);
+  --accent-glow-cyan: rgba(56, 189, 248, 0.15);
+  --scrollbar-track: #f1f5f9;
+}
+
+.dark {
+  /* Dark Mode Tokens */
+  --bg-primary: #050508;
+  --text-main: #e8eaf0;
+  --text-muted: #94a3b8; /* slate-400 */
+  --glass-bg: rgba(10, 10, 18, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.07);
+  --accent-glow-orange: rgba(255, 107, 43, 0.35);
+  --accent-glow-cyan: rgba(56, 189, 248, 0.3);
+  --scrollbar-track: #050508;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Inter', sans-serif;
+  --color-bg-primary: var(--bg-primary);
+  --color-text-main: var(--text-main);
+  --color-text-muted: var(--text-muted);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  /* Prevent browser default outlines from appearing as white lines in dark mode.
+     Focus-visible will still work for keyboard a11y via Tailwind's focus-visible utilities. */
+  outline: none;
+}
+
+/* Restore accessible focus rings only for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid rgba(255, 107, 43, 0.7);
+  outline-offset: 2px;
+}
+
+/* ── Dark mode: prevent any lingering white ring/outline artifacts on hover/click ── */
+.dark *:focus:not(:focus-visible),
+.dark div:focus,
+.dark [tabindex]:focus:not(:focus-visible) {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-main);
+  font-family: 'Inter', 'Space Grotesk', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+/* ── Section wrapper — everything centered ─────────────────────────────── */
+.section-wrapper {
+  width: 100%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* ── Glass panel ───────────────────────────────────────────────────────── */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid var(--glass-border);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ── Orange glow text ──────────────────────────────────────────────────── */
+.text-orange-glow {
+  color: var(--accent-orange);
+  text-shadow: 0 0 40px var(--accent-glow-orange);
+}
+
+/* ── Cyan glow text ────────────────────────────────────────────────────── */
+.text-cyan-glow {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 40px var(--accent-glow-cyan);
+}
+
+/* ── Gradient orange→cyan text ─────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #ff6b2b 0%, #ff9a5c 35%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Section heading tag pill ──────────────────────────────────────────── */
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 107, 43, 0.3);
+  background: rgba(255, 107, 43, 0.08);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-orange);
+}
+
+/* ── Section heading ───────────────────────────────────────────────────── */
+.section-heading {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  text-align: center;
+}
+
+/* ── Divider line ──────────────────────────────────────────────────────── */
+.section-divider {
+  width: 3rem;
+  height: 2px;
+  background: linear-gradient(90deg, #ff6b2b, #38bdf8);
+  border-radius: 9999px;
+  margin: 1rem auto 0;
+}
+
+/* ── Card hover glow ───────────────────────────────────────────────────── */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 64px -16px rgba(255, 107, 43, 0.18);
+  border-color: rgba(255, 107, 43, 0.3);
+}
+
+/* ── Scroll bar ────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb { background: rgba(255, 107, 43, 0.4); border-radius: 9999px; }
+
+/* ── Selection ─────────────────────────────────────────────────────────── */
+::selection { background: rgba(255, 107, 43, 0.25); color: #fff; }
+
+/* ── Spin-slow util (used by avatar) ───────────────────────────────────── */
+@keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.animate-spin-slow { animation: spin-slow 8s linear infinite; }
+
+/* ── Float animation ───────────────────────────────────────────────────── */
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.animate-float { animation: float 4s ease-in-out infinite; }
+
+/* ── Pulse glow ────────────────────────────────────────────────────────── */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }

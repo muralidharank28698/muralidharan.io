@@ -1,0 +1,161 @@
+.tools_Container {
+    width: 300px;
+    padding: 20px;
+    perspective: 1000px;
+  }
+  
+  .tools_card {
+    padding-top: 50px;
+    /* border-radius: 10px; */
+    border: 3px solid rgba(255, 255, 255, 0.15);
+    transform-style: preserve-3d;
+    background: linear-gradient(135deg,#0000 18.75%,#f3f3f3 0 31.25%,#0000 0),
+        repeating-linear-gradient(45deg,#f3f3f3 -6.25% 6.25%,#ffffff 0 18.75%);
+    background-size: 60px 60px;
+    background-position: 0 0, 0 0;
+    background-color: #f0f0f0;
+    width: 100%;
+    box-shadow: rgba(142, 142, 142, 0.3) 0px 30px 30px -10px;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .tools_card:hover {
+    background-position: -100px 100px, -100px 100px;
+    transform: rotate3d(0.5, 1, 0, 30deg);
+  }
+  
+  .tools_content-box {
+    background: rgba(4, 193, 250, 0.732);
+    /* border-radius: 10px 100px 10px 10px; */
+    transition: all 0.5s ease-in-out;
+    padding: 60px 25px 25px 25px;
+    transform-style: preserve-3d;
+  }
+  
+  .tools_content-box .tools_card-title {
+    display: inline-block;
+    color: white;
+    font-size: 25px;
+    font-weight: 900;
+    transition: all 0.5s ease-in-out;
+    transform: translate3d(0px, 0px, 50px);
+  }
+  
+  .tools_content-box .tools_card-title:hover {
+    transform: translate3d(0px, 0px, 60px);
+  }
+  
+  .tools_content-box .tools_card-content {
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #f2f2f2;
+    transition: all 0.5s ease-in-out;
+    transform: translate3d(0px, 0px, 30px);
+  }
+  
+  .tools_content-box .tools_card-content:hover {
+    transform: translate3d(0px, 0px, 60px);
+  }
+  
+  .tools_content-box .tools_see-more {
+    cursor: pointer;
+    margin-top: 1rem;
+    display: inline-block;
+    font-weight: 900;
+    font-size: 9px;
+    text-transform: uppercase;
+    color: rgb(7, 185, 255);
+    /* border-radius: 5px; */
+    background: white;
+    padding: 0.5rem 0.7rem;
+    transition: all 0.5s ease-in-out;
+    transform: translate3d(0px, 0px, 20px);
+  }
+  
+  .tools_content-box .tools_see-more:hover {
+    transform: translate3d(0px, 0px, 60px);
+  }
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(120px) rotate(0deg); /* Increase translateX */
+  }
+  100% {
+    transform: rotate(360deg) translateX(120px) rotate(-360deg); /* Increase translateX */
+  }
+}
+
+@keyframes orbit-reverse {
+  0% {
+    transform: rotate(0deg) translateX(120px) rotate(0deg); /* Increase translateX */
+  }
+  100% {
+    transform: rotate(-360deg) translateX(120px) rotate(360deg); /* Increase translateX */
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.profileCard_container {
+  position: relative;
+  width: 320px; /* Increase width */
+  height: 320px; /* Increase height */
+  padding: 20px; /* Add padding to ensure icons do not touch the border */
+  border-radius: 50%; /* Make the parent div a proper circle */
+  overflow: visible; /* Ensure icons are visible */
+  animation: fadeIn 1s ease-in-out; /* Add fade-in animation */
+}
+
+.orbit-animation {
+  position: absolute;
+  top: 45%; /* Move icons slightly to the top */
+  left: 43%; /* Move icons slightly more to the left */
+  transform-origin: center center;
+  width: 0; /* Remove width to ensure proper rotation */
+  height: 0; /* Remove height to ensure proper rotation */
+}
+
+.orbit-animation:nth-child(1) {
+  animation: orbit 8s linear infinite;
+  transform: rotate(45deg); /* Start from a random direction */
+}
+
+.orbit-animation:nth-child(2) {
+  animation: orbit-reverse 10s linear infinite;
+  transform: rotate(135deg); /* Start from a random direction */
+}
+
+.orbit-animation:nth-child(3) {
+  animation: orbit 12s linear infinite;
+  transform: rotate(225deg); /* Start from a random direction */
+}
+
+.orbit-animation:nth-child(4) {
+  animation: orbit-reverse 14s linear infinite;
+  transform: rotate(315deg); /* Start from a random direction */
+}
+
+.orbit-animation:nth-child(5) {
+  animation: orbit 16s linear infinite;
+  transform: rotate(90deg); /* Start from a random direction */
+}
+
+.orbit-animation:nth-child(6) {
+  animation: orbit 18s linear infinite;
+  transform: rotate(180deg); /* Start from a random direction */
+}
+
+.orbit-animation:nth-child(7) {
+  animation: orbit-reverse 20s linear infinite;
+  transform: rotate(270deg); /* Start from a random direction */
+}
