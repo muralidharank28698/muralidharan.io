@@ -224,7 +224,7 @@ const Projects: React.FC = () => {
   const [activeTab, setActiveTab] = useState<Tab>("Projects");
 
   return (
-    <section className="relative pt-24 pb-20 w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 2xl:px-24 scroll-mt-28">
+    <section className="relative pt-8 md:pt-12 pb-16 md:pb-24 w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 2xl:px-24 scroll-mt-28">
       
       {/* Ambient glow */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">

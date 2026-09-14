@@ -24,8 +24,13 @@ const MainComponent: React.FC = () => {
 
   const scrollHandler = (sectionRef: React.RefObject<HTMLElement | null>) => {
     if (sectionRef?.current) {
+      const headerOffset = 90;
+      const elementPosition = sectionRef.current.getBoundingClientRect().top;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerOffset;
+
       window.scrollTo({
-        top: sectionRef.current.offsetTop,
+        top: offsetPosition,
         behavior: "smooth",
       });
     }

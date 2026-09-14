@@ -207,7 +207,7 @@ export default function Contact() {
   return (
     <section
       id="Contact"
-      className="relative pt-24 pb-8 w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 2xl:px-24 scroll-mt-28"
+      className="relative pt-8 md:pt-12 pb-12 md:pb-16 w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 2xl:px-24 scroll-mt-28"
     >
       {/* Section Tag */}
       <motion.div

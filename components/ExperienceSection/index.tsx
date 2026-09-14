@@ -295,7 +295,7 @@ export default function Experience() {
   return (
     <section
       id="Experience"
-      className="relative pt-24 pb-20 w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 2xl:px-24 scroll-mt-28 font-sans"
+      className="relative pt-8 md:pt-12 pb-16 md:pb-24 w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 2xl:px-24 scroll-mt-28 font-sans"
     >
       {/* Ambient glows */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
@@ -313,7 +313,8 @@ export default function Experience() {
           animate={headerInView ? "show" : "hidden"}
           variants={revealLeft}
         >
-          <div className="text-xs font-bold tracking-[0.15em] text-orange-500 uppercase mb-4">
+          <div className="section-tag mb-4">
+            <span className="w-1.5 h-1.5 bg-orange-400 rounded-full animate-pulse" />
             Professional Experience
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight text-slate-900 dark:text-white mb-4">

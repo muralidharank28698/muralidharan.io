@@ -117,7 +117,7 @@ function AnimatedStat({ value }: { value: string }) {
 
 export default function About() {
   return (
-    <div className="relative py-24 lg:py-32 overflow-hidden border-t border-black/5 dark:border-white/5 transition-colors duration-300">
+    <div className="relative overflow-hidden border-t border-black/5 dark:border-white/5 transition-colors duration-300">
       
       {/* Ambient Glows */}
       <div className="absolute top-[5%] left-1/2 -translate-x-1/2 w-[800px] h-[400px] pointer-events-none z-0"
@@ -133,7 +133,7 @@ export default function About() {
         }} 
       />
 
-      <section id="story" className="relative px-6 md:px-12 xl:px-16 2xl:px-24 w-full z-10 scroll-mt-28">
+      <section id="story" className="relative pt-8 md:pt-12 pb-16 md:pb-24 px-6 md:px-12 xl:px-16 2xl:px-24 w-full z-10 scroll-mt-28">
         
         {/* ── HERO: Headline + Stats side by side ── */}
         <div className="max-w-[1300px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 lg:gap-20 items-center mb-20 lg:mb-28">

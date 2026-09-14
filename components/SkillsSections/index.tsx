@@ -53,7 +53,10 @@ export default function Skills() {
   const bottomRowLogos = [...toolsLogos.slice(2), ...spfxLogos];
 
   return (
-    <section className="relative pt-8 pb-16 w-full max-w-full overflow-hidden scroll-mt-28">
+    <section
+      id="skills"
+      className="relative pt-8 md:pt-12 pb-16 md:pb-24 w-full max-w-full overflow-hidden scroll-mt-28"
+    >
       {/* Ambient Glows */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div
