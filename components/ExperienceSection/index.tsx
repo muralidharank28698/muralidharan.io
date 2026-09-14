@@ -306,7 +306,7 @@ export default function Experience() {
       {/* Header */}
       <div
         ref={headerRef}
-        className="text-center mb-10 md:mb-16 flex flex-col items-center"
+        className="text-left md:text-center mb-10 md:mb-16 flex flex-col items-start md:items-center"
       >
         <motion.div
           initial="hidden"
@@ -317,12 +317,12 @@ export default function Experience() {
             Professional Experience
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight text-slate-900 dark:text-white mb-4">
-            ROLES THAT HAVE <br />
+            ROLES THAT HAVE <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-500">
               SHAPED MY CAREER
             </span>
           </h2>
-          <p className="text-base text-slate-600 dark:text-white/60 max-w-2xl mx-auto">
+          <p className="text-base text-slate-600 dark:text-white/60 max-w-2xl mx-0 md:mx-auto">
             From startups to enterprise solutions, here is a timeline of my
             professional journey in software development.
           </p>
@@ -330,7 +330,7 @@ export default function Experience() {
       </div>
 
       {/* ── Mobile Top Minimal Indicator Bar (Mobile Only) */}
-      <div className="flex md:hidden items-center justify-between max-w-sm mx-auto px-4 mb-3 relative z-10">
+      <div className="flex md:hidden items-center justify-between max-w-sm mx-auto  mb-3 relative z-10">
         <div className="flex items-center gap-1.5 bg-slate-100/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 px-2.5 py-1 rounded-full backdrop-blur-md shadow-xs">
           {experiences.map((_, i) => (
             <button
@@ -356,7 +356,11 @@ export default function Experience() {
             <FiArrowLeft size={12} />
           </button>
           <button
-            onClick={() => scrollToCardIndex(Math.min(experiences.length - 1, activeCardIndex + 1))}
+            onClick={() =>
+              scrollToCardIndex(
+                Math.min(experiences.length - 1, activeCardIndex + 1),
+              )
+            }
             disabled={activeCardIndex === experiences.length - 1}
             aria-label="Next card"
             className="w-7 h-7 rounded-full flex items-center justify-center border bg-white/80 dark:bg-neutral-900/80 border-slate-200/80 dark:border-white/10 text-slate-700 dark:text-white disabled:opacity-30 disabled:pointer-events-none transition-all shadow-xs active:scale-95 cursor-pointer"
@@ -373,7 +377,7 @@ export default function Experience() {
         initial="hidden"
         animate={headerInView ? "show" : "hidden"}
         variants={stagger}
-        className="flex overflow-x-auto snap-x snap-mandatory gap-6 mb-12 max-w-sm md:max-w-4xl mx-auto px-4 md:px-4 md:grid md:grid-cols-3 md:overflow-visible items-stretch pb-2 md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        className="flex overflow-x-auto snap-x snap-mandatory gap-6 mb-12 max-w-sm md:max-w-4xl mx-auto  md:px-4 md:grid md:grid-cols-3 md:overflow-visible items-stretch pb-2 md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
       >
         {experiences.map((item) => {
           return (
@@ -393,9 +397,7 @@ export default function Experience() {
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-400/20 dark:via-white/20 to-transparent pointer-events-none z-10" />
 
               {/* Top Animated Spotlight Line */}
-              <motion.div
-                className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-orange-500 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              />
+              <motion.div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-orange-500 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
               {/* Multi-layered Fluid Glow Orbs */}
               <div className="absolute -top-16 -right-16 w-36 h-36 bg-gradient-to-br from-orange-500/10 via-amber-500/5 to-transparent rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-all duration-700" />
@@ -492,7 +494,7 @@ export default function Experience() {
         initial="hidden"
         animate={headerInView ? "show" : "hidden"}
         variants={fadeUp}
-        className="max-w-5xl mx-auto rounded-3xl overflow-hidden bg-white/85 dark:bg-[#0c0d14]/95 border border-slate-200/80 dark:border-white/10 text-slate-900 dark:text-white p-6 sm:p-8 md:p-9 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4 shadow-xl shadow-slate-200/60 dark:shadow-black/80 relative backdrop-blur-2xl"
+        className="max-w-5xl mx-auto rounded-2xl sm:rounded-3xl overflow-hidden bg-white/85 dark:bg-[#0c0d14]/95 border border-slate-200/80 dark:border-white/10 text-slate-900 dark:text-white grid grid-cols-3 divide-x divide-slate-200/70 dark:divide-white/10 p-3 sm:p-6 md:p-9 md:flex md:flex-row items-center justify-between gap-2 md:gap-4 md:divide-x-0 shadow-xl shadow-slate-200/60 dark:shadow-black/80 relative backdrop-blur-2xl"
       >
         {/* Specular Edge Highlight */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-300/30 dark:via-white/20 to-transparent pointer-events-none z-10" />
@@ -501,16 +503,17 @@ export default function Experience() {
         <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-transparent to-orange-500/5 pointer-events-none" />
 
         {/* Stat 1 */}
-        <div className="relative z-10 flex items-center gap-5 w-full md:w-auto justify-center md:justify-start">
-          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-orange-500/10 dark:bg-orange-500/15 border border-orange-500/20 text-orange-500 dark:text-orange-400 flex items-center justify-center shrink-0 shadow-sm">
-            <FiBriefcase size={22} />
+        <div className="relative z-10 flex flex-col md:flex-row items-center gap-1.5 sm:gap-3 md:gap-5 justify-center md:justify-start text-center md:text-left px-1 md:px-0">
+          <div className="w-9 h-9 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl sm:rounded-2xl bg-orange-500/10 dark:bg-orange-500/15 border border-orange-500/20 text-orange-500 dark:text-orange-400 flex items-center justify-center shrink-0 shadow-xs">
+            <FiBriefcase className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
           </div>
           <div>
-            <h4 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-orange-400 to-amber-500 mb-0.5">
+            <h4 className="text-lg sm:text-2xl md:text-4xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-orange-400 to-amber-500 mb-0.5">
               3+
             </h4>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-white/70 font-semibold tracking-wide">
-              Companies Worked
+            <p className="text-[10px] sm:text-xs md:text-sm text-slate-600 dark:text-white/70 font-semibold tracking-tight md:tracking-wide">
+              <span className="md:hidden">Companies</span>
+              <span className="hidden md:inline">Companies Worked</span>
             </p>
           </div>
         </div>
@@ -519,16 +522,17 @@ export default function Experience() {
         <div className="hidden md:block w-px h-12 bg-slate-200/80 dark:bg-white/10" />
 
         {/* Stat 2 */}
-        <div className="relative z-10 flex items-center gap-5 w-full md:w-auto justify-center md:justify-start">
-          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-orange-500/10 dark:bg-orange-500/15 border border-orange-500/20 text-orange-500 dark:text-orange-400 flex items-center justify-center shrink-0 shadow-sm">
-            <FiCode size={22} />
+        <div className="relative z-10 flex flex-col md:flex-row items-center gap-1.5 sm:gap-3 md:gap-5 justify-center md:justify-start text-center md:text-left px-1 md:px-0">
+          <div className="w-9 h-9 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl sm:rounded-2xl bg-orange-500/10 dark:bg-orange-500/15 border border-orange-500/20 text-orange-500 dark:text-orange-400 flex items-center justify-center shrink-0 shadow-xs">
+            <FiCode className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
           </div>
           <div>
-            <h4 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-orange-400 to-amber-500 mb-0.5">
+            <h4 className="text-lg sm:text-2xl md:text-4xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-orange-400 to-amber-500 mb-0.5">
               15+
             </h4>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-white/70 font-semibold tracking-wide">
-              Projects Delivered
+            <p className="text-[10px] sm:text-xs md:text-sm text-slate-600 dark:text-white/70 font-semibold tracking-tight md:tracking-wide">
+              <span className="md:hidden">Projects</span>
+              <span className="hidden md:inline">Projects Delivered</span>
             </p>
           </div>
         </div>
@@ -537,16 +541,17 @@ export default function Experience() {
         <div className="hidden md:block w-px h-12 bg-slate-200/80 dark:bg-white/10" />
 
         {/* Stat 3 */}
-        <div className="relative z-10 flex items-center gap-5 w-full md:w-auto justify-center md:justify-start">
-          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-orange-500/10 dark:bg-orange-500/15 border border-orange-500/20 text-orange-500 dark:text-orange-400 flex items-center justify-center shrink-0 shadow-sm">
-            <FiCalendar size={22} />
+        <div className="relative z-10 flex flex-col md:flex-row items-center gap-1.5 sm:gap-3 md:gap-5 justify-center md:justify-start text-center md:text-left px-1 md:px-0">
+          <div className="w-9 h-9 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl sm:rounded-2xl bg-orange-500/10 dark:bg-orange-500/15 border border-orange-500/20 text-orange-500 dark:text-orange-400 flex items-center justify-center shrink-0 shadow-xs">
+            <FiCalendar className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
           </div>
           <div>
-            <h4 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-orange-400 to-amber-500 mb-0.5">
+            <h4 className="text-lg sm:text-2xl md:text-4xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-orange-400 to-amber-500 mb-0.5">
               4+
             </h4>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-white/70 font-semibold tracking-wide">
-              Years Experience
+            <p className="text-[10px] sm:text-xs md:text-sm text-slate-600 dark:text-white/70 font-semibold tracking-tight md:tracking-wide">
+              <span className="md:hidden">Years Exp.</span>
+              <span className="hidden md:inline">Years Experience</span>
             </p>
           </div>
         </div>

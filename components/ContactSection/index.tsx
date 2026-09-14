@@ -108,7 +108,7 @@ const UnderlineField: React.FC<{
 }) => {
   const hasErr = !!error;
   const base =
-    "w-full bg-transparent border-b-2 border-black/10 dark:border-white/10 pb-2 pt-1 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-white/25 transition-all outline-none focus:border-orange-400 dark:focus:border-orange-400";
+    "w-full bg-transparent border-b-2 border-black/10 dark:border-white/10 pb-2 pt-1 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-white/25 transition-all outline-none focus:outline-none focus-visible:outline-none focus:ring-0 ring-0 focus:border-orange-400 dark:focus:border-orange-400";
   const errClass = hasErr ? "border-red-400 focus:border-red-400" : "";
 
   return (

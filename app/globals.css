@@ -44,10 +44,34 @@
   outline: none;
 }
 
-/* Restore accessible focus rings only for keyboard navigation */
+/* Restore accessible focus rings only for keyboard navigation (excluding text inputs) */
 *:focus-visible {
   outline: 2px solid rgba(255, 107, 43, 0.7);
   outline-offset: 2px;
+}
+
+/* Exclude text inputs, textareas, and select elements from box outline rings */
+input:focus,
+input:focus-visible,
+textarea:focus,
+textarea:focus-visible,
+select:focus,
+select:focus-visible {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+}
+
+/* ── Webkit Autofill Style Fixes ── */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: currentColor !important;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  transition: background-color 5000s ease-in-out 0s !important;
 }
 
 /* ── Dark mode: prevent any lingering white ring/outline artifacts on hover/click ── */
